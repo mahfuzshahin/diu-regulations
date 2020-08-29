@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_diu_regulation_category_user,regulation_category,model_regulation_category,daffodil_diu_regulations.group_diu_user,1,0,0,0
+access_diu_regulation_category_manager,regulation_category,model_regulation_category,daffodil_diu_regulations.group_diu_manager,1,1,1,1
+
+access_diu_diu_regulations_user,diu_regulations,model_diu_regulations,daffodil_diu_regulations.group_diu_user,1,0,0,0
+access_diu_diu_regulations_manager,diu_regulations,model_diu_regulations,daffodil_diu_regulations.group_diu_manager,1,1,1,1

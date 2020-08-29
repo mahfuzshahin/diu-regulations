@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="kanban_view_diu_regulations">
+            <field name="name">diu.regulations.kanban</field>
+            <field name="model">diu.regulations</field>
+            <field name="arch" type="xml">
+                <kanban class="o_res_partner_kanban">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_res_partner_kanban">
+                                <div class="o_kanban_image">
+                                    <img alt="Avatar" src="daffodil_diu_regulations/static/img/pdf.png"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open">
+                                            <field name="name"/>
+                                        </a>
+                                    </h4>
+                                    <ul>
+                                        <li t-if="record.category_ids.raw_value">
+                                            <field name="category_ids"/>
+                                        </li>
+                                        <li t-if="record.effective_date.raw_value">
+                                            <field name="effective_date"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_diu_regulations_tree" model="ir.ui.view">
+            <field name="name">diu.regulations.tree</field>
+            <field name="model">diu.regulations</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="DIU Regulations">
+                    <field name="name"/>
+                    <field name="category_ids"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_diu_regulations_form" model="ir.ui.view">
+            <field name="name">diu.regulations.form</field>
+            <field name="model">diu.regulations</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="DIU Regulations">
+                    <sheet>
+                        <notebook colspan="4">
+                            <group col="4">
+                                <group>
+                                    <field name="name" placeholder="Policy Title"/>
+                                    <field name="category_ids" placeholder="Category"/>
+                                    <field name="effective_date" options="{'format': 'DD/MM/YYYY'}" placeholder="Date"/>
+                                    <field name="description"/>
+                                    <field name="attachment_ids" widget="many2many_binary" class="oe_inline"/>
+                                    <field name="url" widget="url" placeholder="www.example.com"/>
+                                </group>
+                            </group>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_diu_regulations_search" model="ir.ui.view">
+            <field name="name">diu.regulations.search</field>
+            <field name="model">diu.regulations</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="DIU Regulations">
+                        <field name="category_ids"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="attachment_ids" widget="many2many_binary" class="oe_inline"/>
+                        <field name="url" widget="url" placeholder="www.openerp.com"/>
+                        <searchpanel>
+                           <field name="category_ids" string="Policy Category" icon="fa fa-list-alt"/>
+                       </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_diu_regulations_view">
+            <field name="name">DIU Regulations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">diu.regulations</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_diu_regulations_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

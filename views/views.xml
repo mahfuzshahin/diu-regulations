@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="daffodil_diu_regulations.list">
+      <field name="name">daffodil_diu_regulations list</field>
+      <field name="model">daffodil_diu_regulations.daffodil_diu_regulations</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="daffodil_diu_regulations.action_window">
+      <field name="name">daffodil_diu_regulations window</field>
+      <field name="res_model">daffodil_diu_regulations.daffodil_diu_regulations</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="daffodil_diu_regulations.action_server">
+      <field name="name">daffodil_diu_regulations server</field>
+      <field name="model_id" ref="model_daffodil_diu_regulations_daffodil_diu_regulations"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="daffodil_diu_regulations" id="daffodil_diu_regulations.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="daffodil_diu_regulations.menu_1" parent="daffodil_diu_regulations.menu_root"/>
+    <menuitem name="Menu 2" id="daffodil_diu_regulations.menu_2" parent="daffodil_diu_regulations.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="daffodil_diu_regulations.menu_1_list" parent="daffodil_diu_regulations.menu_1"
+              action="daffodil_diu_regulations.action_window"/>
+    <menuitem name="Server to list" id="daffodil_diu_regulations" parent="daffodil_diu_regulations.menu_2"
+              action="daffodil_diu_regulations.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- User Group -->
+    <record id="category_diu_security" model="ir.module.category">
+        <field name="name">DIU Regulations</field>
+    </record>
+
+    <record id="group_diu_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="category_diu_security" />
+    </record>
+
+    <record id="group_diu_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="implied_ids" eval="[(4, ref('group_diu_user'))]" />
+        <field name="category_id" ref="category_diu_security" />
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+
+</odoo>
+
